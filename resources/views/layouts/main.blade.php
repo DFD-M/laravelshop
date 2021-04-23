@@ -31,15 +31,9 @@
 							<div class="logo"><a href="#">E Shop</a></div>
 							<nav class="main_nav">
 								<ul>
-									<li class="hassubs active">
+									<li class="hass">
 										<a href="{{route('home')}}">Главная</a>
-										<ul>
-											<li><a href="categories.html">Категории</a></li>
-											<li><a href="product.html">Product</a></li>
-											<li><a href="cart.html">Cart</a></li>
-											<li><a href="checkout.html">Check out</a></li>
-											<li><a href="contact.html">Contact</a></li>
-										</ul>
+										
 									</li>
 									<li class="hassubs">
                                         <a href="categories.html">Categories</a>
@@ -52,11 +46,12 @@
 									<li><a href="#">Accessories</a></li>
 									<li><a href="#">Offers</a></li>
 									<li><a href="contact.html">Contact</a></li>
+									<li><a href="{{route('login')}}">Вход</a></li>
 								</ul>
 							</nav>
 							<div class="header_extra ml-auto">
 								<div class="shopping_cart">
-									<a href="cart.html">
+									<a href="{{route('cartIndex')}}">
 										<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 												 viewBox="0 0 489 489" style="enable-background:new 0 0 489 489;" xml:space="preserve">
 											<g>
@@ -67,7 +62,7 @@
 													c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5v-41h45.2l26.9,302.3C412.8,445.2,392.1,462,366.8,462z"/>
 											</g>
 										</svg>
-										<div>Cart <span>(0)</span></div>
+										<div>Cart (<span class="cart-qty">{{ count((array) session('cart')) }}</span>)</div>
 									</a>
 								</div>
 								<div class="search">

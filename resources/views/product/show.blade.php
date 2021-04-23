@@ -6,10 +6,7 @@
     <link rel="stylesheet" type="text/css" href="/styles/product_responsive.css">
 @endsection
 
-@section('custom_js')
-    <script src="/js/product.js"></script>
-  
-@endsection
+
 
 @section('content')
     <!-- Home -->
@@ -52,7 +49,6 @@
                         <div class="details_image_large"><img src="/images/{{$image}}" alt="{{$item->title}}"><div class="product_extra product_new"><a href="categories.html">New</a></div></div>
                         <div class="details_image_thumbnails d-flex flex-row align-items-start justify-content-between">
                             @if($image == 'no_image.png')
-                            <div class="details_image_thumbnail active" data-image="/images/{{$image}}"><img src="/images/{{$image}}" alt="{{$item->title}}"></div>
 
                             @else
                                 @foreach($item->images as $img)
@@ -71,12 +67,9 @@
                 <div class="col-lg-6">
                     <div class="details_content">
                         <div class="details_name" data-id="{{$item->id}}">{{$item->title}}</div>
-                        @if($item->new_price != null)
-                            <div class="details_discount">${{$item->price}}</div>
-                            <div class="details_price">${{$item->new_price}}</div>
-                        @else
+                       
                             <div class="details_price">${{$item->price}}</div>
-                        @endif
+                        
 
                         <!-- In Stock -->
                         <div class="in_stock_container">
@@ -93,18 +86,10 @@
 
                         <!-- Product Quantity -->
                         <div class="product_quantity_container">
-                            <div class="product_quantity clearfix">
-                                <span>Qty</span>
-                                <input id="quantity_input" type="text" pattern="[0-9]*" value="1">
-                                <div class="quantity_buttons">
-                                    <div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
-                                    <div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-                                </div>
-                            </div>
-                            <div class="button cart_button"><a href="#">Add to cart</a></div>
+                            
+                        <p class="btn-holder"><a href="{{ url('add-to-cart/'.$item->id) }}" class="btn btn-warning btn-block text-center" role="button">Add to cart</a> </p>
                         </div>
 
-                        <!-- Share -->
                        
                     </div>
                 </div>
@@ -114,6 +99,7 @@
                 <div class="col">
                     <div class="description_title_container">
                         <div class="description_title">Description</div>
+                        
                     </div>
                     <div class="description_text">
                         <p>{{$item->description}}</p>
@@ -123,7 +109,12 @@
         </div>
     </div>
 
+    <!-- Products -->
 
+    
+    
 
-   
+    <!-- Newsletter -->
+
+    
 @endsection
