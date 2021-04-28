@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\ShoppingCart;
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\DB;
 class ProductsController extends Controller
 {
@@ -25,7 +28,7 @@ class ProductsController extends Controller
 
         }
 
-        $cart = sesson()->get('cart');
+        $cart = session()->get('cart');
         
 
         // if cart is empty then this the first product
@@ -98,5 +101,27 @@ class ProductsController extends Controller
 
             session()->flash('success', 'Product removed successfully');
         }
+    }
+
+    public function check(Request $request){
+        $cart=session()->get('cart');
+        $adress=$request->adress;
+        $firstname=$request->firstname;
+        $lastname=$request->lastname;
+        $total=$request->total;
+        $date=date('Y-m-d H:i:s');
+        $all=[$adress,$firstname,$lastname,$total];
+
+        ShoppingCart::create([
+            'firstname' =>$firstname,
+            'lastname'=>$lastname,
+            'date'=>$date,
+            'total'=>$total,
+            'adress'=>$adress
+            ]);
+
+            return Excel::download(new UsersExport, 'check.xlsx');
+    
+        
     }
 }

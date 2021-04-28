@@ -10,15 +10,18 @@ class ShoppingCart extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
-        'product_id',
+        'date',
+        'firstname',
+        'lastname',
+        'adress',
+        'total'
     ];
     
-    public function prod(){
-        return $this->hasOne('App\Models\Product','product_id');
-    }
+    // public function prod(){
+    //     return $this->hasOne('App\Models\Product','product_id');
+    // }
 
-     public function products(){
-        return $this->belongsTo('App\Models\Product');
-    }
+    //  public function products(){
+    //     return $this->belongsTo('App\Models\Product');
+    
 }

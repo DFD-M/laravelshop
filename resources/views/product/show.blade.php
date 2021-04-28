@@ -19,8 +19,8 @@
                     <div class="row">
                         <div class="col">
                             <div class="home_content">
-                                <div class="home_title">Smart Phones<span>.</span></div>
-                                <div class="home_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.</p></div>
+                                <div class="home_title"><span>.</span></div>
+                                <div class="home_text"><p>.</p></div>
                             </div>
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                                 $image = 'no_image.png';
                             }
                         @endphp
-                        <div class="details_image_large"><img src="/images/{{$image}}" alt="{{$item->title}}"><div class="product_extra product_new"><a href="categories.html">New</a></div></div>
+                        <div class="details_image_large"><img src="/images/{{$image}}" alt="{{$item->title}}"><div class="product_extra product_new"><a href="{{route('showCategory',$item->category['alias'])}}">{{$item->category['title']}}</a></div></div>
                         <div class="details_image_thumbnails d-flex flex-row align-items-start justify-content-between">
                             @if($image == 'no_image.png')
 
@@ -68,7 +68,7 @@
                     <div class="details_content">
                         <div class="details_name" data-id="{{$item->id}}">{{$item->title}}</div>
                        
-                            <div class="details_price">${{$item->price}}</div>
+                            <div class="details_price">{{$item->price}} ₽</div>
                         
 
                         <!-- In Stock -->
@@ -86,10 +86,13 @@
 
                         <!-- Product Quantity -->
                         <div class="product_quantity_container">
-                            
-                        <p class="btn-holder"><a href="{{ url('add-to-cart/'.$item->id) }}" class="btn btn-warning btn-block text-center" role="button">Add to cart</a> </p>
+                        @if(Auth::user())
+                        <p class="btn-holder"><a href="{{ url('add-to-cart/'.$item->id) }}" class="btn btn-warning btn-block text-center" role="button">Добавить в корзину </a> </p>
+                        @else
+                       <a href="{{ url('login') }}" class="btn btn-danger" role="button" >Пожалуйста войдите в свой аккаунт</a>
+                        @endif 
                         </div>
-
+                        
                        
                     </div>
                 </div>

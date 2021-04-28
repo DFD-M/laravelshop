@@ -30,23 +30,23 @@
 						<div class="header_content d-flex flex-row align-items-center justify-content-start">
 							<div class="logo"><a href="#">E Shop</a></div>
 							<nav class="main_nav">
-								<ul>
+								<ul class="mainlinks">
 									<li class="hass">
 										<a href="{{route('home')}}">Главная</a>
 										
 									</li>
 									<li class="hassubs">
-                                        <a href="categories.html">Categories</a>
+                                        <a href="">Категории</a>
                                         <ul>
                                             @foreach($categories as $category)
                                                 <li><a href="{{route('showCategory',$category->alias)}}">{{$category->title}}</a></li>
                                             @endforeach
                                         </ul>
                                     </li>
-									<li><a href="#">Accessories</a></li>
-									<li><a href="#">Offers</a></li>
-									<li><a href="contact.html">Contact</a></li>
+									<li><a href="{{route('contact')}}">Контакты</a></li>
+								
 									<li><a href="{{route('login')}}">Вход</a></li>
+									<li><a href="{{route('logout')}}">Выход</a></li>
 								</ul>
 							</nav>
 							<div class="header_extra ml-auto">
@@ -62,7 +62,7 @@
 													c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5v-41h45.2l26.9,302.3C412.8,445.2,392.1,462,366.8,462z"/>
 											</g>
 										</svg>
-										<div>Cart (<span class="cart-qty">{{ count((array) session('cart')) }}</span>)</div>
+										<div>Корзина (<span class="cart-qty">{{ count((array) session('cart')) }}</span>)</div>
 									</a>
 								</div>
 								<div class="search">
@@ -122,53 +122,9 @@
 
 	<!-- Menu -->
 
-	<div class="menu menu_mm trans_300">
-		<div class="menu_container menu_mm">
-			<div class="page_menu_content">
-							
-				<div class="page_menu_search menu_mm">
-					<form action="#">
-						<input type="search" required="required" class="page_menu_search_input menu_mm" placeholder="Search for products...">
-					</form>
-				</div>
-				<ul class="page_menu_nav menu_mm">
-					<li class="page_menu_item has-children menu_mm">
-						<a href="index.html">Home<i class="fa fa-angle-down"></i></a>
-						<ul class="page_menu_selection menu_mm">
-							<li class="page_menu_item menu_mm"><a href="categories.html">Categories<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="product.html">Product<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="cart.html">Cart<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="checkout.html">Checkout<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="contact.html">Contact<i class="fa fa-angle-down"></i></a></li>
-						</ul>
-					</li>
-					<li class="page_menu_item has-children menu_mm">
-						<a href="categories.html">Categories<i class="fa fa-angle-down"></i></a>
-						<ul class="page_menu_selection menu_mm">
-							<li class="page_menu_item menu_mm"><a href="categories.html">Category<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="categories.html">Category<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="categories.html">Category<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="categories.html">Category<i class="fa fa-angle-down"></i></a></li>
-						</ul>
-					</li>
-					<li class="page_menu_item menu_mm"><a href="index.html">Accessories<i class="fa fa-angle-down"></i></a></li>
-					<li class="page_menu_item menu_mm"><a href="#">Offers<i class="fa fa-angle-down"></i></a></li>
-					<li class="page_menu_item menu_mm"><a href="contact.html">Contact<i class="fa fa-angle-down"></i></a></li>
-				</ul>
-			</div>
-		</div>
+	
 
-		<div class="menu_close"><i class="fa fa-times" aria-hidden="true"></i></div>
-
-		<div class="menu_social">
-			<ul>
-				<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-			</ul>
-		</div>
-	</div>
+		
 	
 	<!-- Products -->
 

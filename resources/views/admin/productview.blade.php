@@ -16,6 +16,7 @@
     @endif
 
 <div class="line" style="text-align:right">
+<a href="{{route('home')}}" class="btn btn-primary">Назад</a>
 <a href="/productadd" class="btn btn-primary">Добавить продукт</a>
 <form>
  <table class="table table-bordered">
@@ -41,10 +42,10 @@
       <td>{{$row->description}}</td>
       <td>{{$row->category_id}}</td>
       <td>
-      <a href="click_edit/{{$row->id}}" class="btn btn-success">Edit</a>
+      <a href="click_edit/{{$row->id}}" class="btn btn-success">Редактировать</a>
       </td>
       <td>
-      <a href="/click_delete/{{$row->id}}" class="btn btn-danger">Delete</a>
+      <a href="/click_delete/{{$row->id}}" class="btn btn-danger">Удалить</a>
       </td>
     </tr>
     @endforeach

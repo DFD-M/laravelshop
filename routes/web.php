@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Home3Controller;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\CartController;
@@ -20,6 +21,7 @@ use Illuminate\Support\Facades\Auth;
 */  
 
 Route::get('/',[HomeController::class,'index'])->name('home');
+Route::get('/contact',[HomeController::class,'contact'])->name('contact');
 Route::get('/category/{cat}',   [ProductController::class,'showCategory'])->name('showCategory');
 Route::get('/category/{cat}/{product_id}',[ProductController::class,'show'])->name('showProduct');
 // Route::post('/ad',[HomeController::class,'add'])->name('ad');
@@ -29,6 +31,7 @@ Route::get('/category/{cat}/{product_id}',[ProductController::class,'show'])->na
 //admin
 Route::post('/update/{id}',[AdminController::class,'update_function']);
 Route::post('/add_data',[AdminController::class,'save']);
+Route::post('/check',[ProductsController::class,'check']);
 
 Route::get('/click_delete/{id}',[AdminController::class,'delete_function']);
 Route::get('/admin/products',[AdminController::class,'display']);
@@ -38,7 +41,7 @@ Route::get('admin/click_edit/{id}',[AdminController::class,'edit_function']);
 Route::get('/admin/productsview',[AdminController::class,'index']);
 
 //cart
-Route::get('cart',[ProductsController::class,'cart'])->name('cartIndex');
+Route::get('cart',[ProductsController::class,'cart'])->name('cartIndex')->middleware('auth');;
 Route::get('add-to-cart/{id}',[ProductsController::class,'addToCart'])->name('addToCart');
 Route::patch('update-cart',[ProductsController::class,'update']);
 Route::delete('remove-from-cart',[ProductsController::class,'remove']);
@@ -46,4 +49,5 @@ Route::delete('remove-from-cart',[ProductsController::class,'remove']);
 
 
 Auth::routes();
-// Route::get('/home',[HomeController::class,'index'])->name('home');
+Route::get('/home2',[\App\Http\Controllers\Home3Controller::class,'index'])->name('home2');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');

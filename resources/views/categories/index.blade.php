@@ -35,7 +35,7 @@
 
                     <!-- Product Sorting -->
                     <div class="sorting_bar d-flex flex-md-row flex-column align-items-md-center justify-content-md-start">
-                        <div class="results">Showing <span>{{$cat->products->count()}}</span> results</div>
+                        <div class="results">Найдено <span>{{$cat->products->count()}}</span> товаров</div>
                         <div class="sorting_container ml-md-auto">
                             <div class="sorting">
                                 <ul class="item_sorting">
