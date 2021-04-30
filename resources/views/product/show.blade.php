@@ -73,11 +73,11 @@
 
                         <!-- In Stock -->
                         <div class="in_stock_container">
-                            <div class="availability">Availability:</div>
+                            <div class="availability">Наличие:</div>
                             @if($item->in_stock)
-                                <span>In Stock</span>
+                                <span>В наличии</span>
                             @else
-                                <span style="color: #cc0000">Unavailable</span>
+                                <span style="color: #cc0000">Отсутствует</span>
                             @endif
                         </div>
                         <div class="details_text">
